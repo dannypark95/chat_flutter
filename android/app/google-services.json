@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "92635895667",
+    "project_id": "danny-chat-poc",
+    "storage_bucket": "danny-chat-poc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92635895667:android:a6b847d8827da222905706",
+        "android_client_info": {
+          "package_name": "com.example.chat_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALNizFQ1lJ_IqaazxAMz8fIyzFuJDitPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
