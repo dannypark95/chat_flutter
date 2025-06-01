@@ -7,7 +7,9 @@ class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  final void Function()? onTap;
+
+  LoginPage({super.key, required this.onTap});
 
   void login() {
     // Handle login logic here
@@ -52,11 +54,14 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                 )),
-              Text("Register now",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.bold,
-              ))
+              GestureDetector(
+                onTap: onTap,
+                child: Text("Register now",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.bold,
+                )),
+              )
             ],)
           
           ],

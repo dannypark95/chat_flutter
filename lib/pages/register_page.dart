@@ -6,8 +6,10 @@ class RegisterPage extends StatelessWidget {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  
+  final void Function()? onTap;
 
-  RegisterPage({super.key});
+  RegisterPage({super.key, required this.onTap});
 
   void register() {
     // Handle login logic here
@@ -38,12 +40,35 @@ class RegisterPage extends StatelessWidget {
               obscureText: true,
               controller: _passwordController,
             ),
+            const SizedBox(height: 10),
+            // add password confirmation field
+            MyTextField(
+              hintText: 'Confirm Password',
+              obscureText: true,
+              controller: _passwordController
+            ),
             const SizedBox(height: 20),
             MyButton(
               text: 'Register',
               onTap: register,
             ),
             const SizedBox(height: 10), 
+            Row(children: [
+              const Spacer(),
+              Text("Already a member? ",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                )),
+              GestureDetector(
+                onTap: onTap,
+                child: Text("Login now",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.bold,
+                )),
+              ),
+              const Spacer(),
+            ],)
           
           ],
         ),
