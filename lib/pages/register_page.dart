@@ -43,7 +43,7 @@ class RegisterPage extends StatelessWidget {
               text: 'Register',
               onTap: register,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 10), 
           
           ],
         ),
