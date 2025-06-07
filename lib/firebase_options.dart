@@ -64,6 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '92635895667',
     projectId: 'danny-chat-poc',
     storageBucket: 'danny-chat-poc.firebasestorage.app',
+    iosClientId: '92635895667-9big0jbqgtktre2r1pap612ps1kcodus.apps.googleusercontent.com',
     iosBundleId: 'com.example.chatFlutter',
   );
 
@@ -73,6 +74,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '92635895667',
     projectId: 'danny-chat-poc',
     storageBucket: 'danny-chat-poc.firebasestorage.app',
+    iosClientId: '92635895667-9big0jbqgtktre2r1pap612ps1kcodus.apps.googleusercontent.com',
     iosBundleId: 'com.example.chatFlutter',
   );
 
@@ -85,4 +87,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'danny-chat-poc.firebasestorage.app',
     measurementId: 'G-T0WDWVD20G',
   );
+
 }

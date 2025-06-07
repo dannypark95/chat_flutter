@@ -12,7 +12,12 @@
           "package_name": "com.example.chat_flutter"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "92635895667-ku41lcldhkbrlounohc00k1389s51i44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyALNizFQ1lJ_IqaazxAMz8fIyzFuJDitPU"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92635895667-ku41lcldhkbrlounohc00k1389s51i44.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92635895667-2nf1c6nucp17vo1m6qu0kaot9erh7tm1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dannypark.chat-flutter"
+              }
+            }
+          ]
         }
       }
     }

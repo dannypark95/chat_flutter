@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:chat_flutter/components/textfield.dart';
 import 'package:chat_flutter/components/button.dart';
+import 'package:chat_flutter/auth/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -11,10 +11,33 @@ class LoginPage extends StatelessWidget {
 
   LoginPage({super.key, required this.onTap});
 
-  void login() {
-    // Handle login logic here
-    print('Email: ${_emailController.text}');
-    print('Password: ${_passwordController.text}');
+  void login(BuildContext context) async {
+    final authService = AuthService();
+
+    try {
+      await authService.signInWithEmailPassword(
+        _emailController.text.trim(),
+        _passwordController.text.trim(),
+      );
+      // Navigate to home page or show success message
+    } catch (e) {
+      if (context.mounted) {
+        showDialog(
+          context: context,
+          builder:
+              (context) => AlertDialog(
+                title: Text('Error'),
+                content: Text(e.toString()),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text('OK'),
+                  ),
+                ],
+              ),
+        );
+      }
+    }
   }
 
   @override
@@ -23,10 +46,7 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, 
-
-
-
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/main_logo.png', width: 300, height: 300),
             MyTextField(
@@ -41,32 +61,33 @@ class LoginPage extends StatelessWidget {
               controller: _passwordController,
             ),
             const SizedBox(height: 20),
-            MyButton(
-              text: 'Login',
-              onTap: login,
-            ),
+            MyButton(text: 'Login', onTap: () => login(context)),
             const SizedBox(height: 10),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Text("Not a member? ",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                )),
-              GestureDetector(
-                onTap: onTap,
-                child: Text("Register now",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.bold,
-                )),
-              )
-            ],)
-          
+                Text(
+                  "Not a member? ",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: onTap,
+                  child: Text(
+                    "Register now",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
-      )
+      ),
     );
   }
 }
